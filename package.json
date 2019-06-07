@@ -27,7 +27,7 @@
     "babel-runtime": "6.26.0",
     "redux-saga": "0.16.0",
     "snazzy": "7.1.1",
-    "standard": "11.0.1"
+    "standard": "12.0.1"
   },
   "standard": {
     "parser": "babel-eslint"
