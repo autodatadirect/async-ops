@@ -1,12 +1,12 @@
 {
-  "name": "async-ops",
-  "version": "1.1.6",
+  "name": "async-operations",
+  "version": "1.1.8",
   "description": "A library for redux saga asynchronous calls",
   "main": "./dist/index.js",
-  "repository": "https://github.com/autodatadirect/async-ops",
+  "repository": "https://github.com/NetchexDev/async-ops",
   "scripts": {
     "build": "babel ./src -d ./dist",
-    "prepublish": "npm run build",
+    "prepare": "npm run build",
     "lint": "standard \"./src/**/*.js\" | snazzy"
   },
   "keywords": [
@@ -15,7 +15,7 @@
     "redux",
     "async"
   ],
-  "author": "Auto Data Direct, Inc.",
+  "author": "Netchex",
   "license": "MIT",
   "devDependencies": {
     "@babel/cli": "7.5.5",

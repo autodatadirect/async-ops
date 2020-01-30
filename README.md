@@ -1,4 +1,4 @@
-# Async-Ops
+# Async-Operations
 Async-Ops is a library for performing asynchronous service calls in Redux applications.  Async-Ops is made for use with [Redux-Sagas](https://redux-saga.js.org/).
 
 ## Motivations
