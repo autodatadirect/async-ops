@@ -1,4 +1,5 @@
 import * as actionTypes from './actionTypes'
+import { isOperation, isCompletion, isFailure } from './utility'
 
 export const STORE_DOMAIN = 'asyncops'
 
@@ -34,10 +35,14 @@ const complete = (state, action) => {
 }
 
 export default (state = initialState, action) => {
-  switch (action.type) {
-    case actionTypes.OPERATION: return operation(state, action)
-    case actionTypes.FAILURE: return failure(state, action)
-    case actionTypes.COMPLETE: return complete(state, action)
-    default: return state
+  if (isOperation(action.type) || action.type === actionTypes.OPERATION) {
+    return operation(state, action)
   }
+  if (isFailure(action.type) || action.type === actionTypes.FAILURE) {
+    return failure(state, action)
+  }
+  if (isCompletion(action.type) || action.type === actionTypes.COMPLETE) {
+    return complete(state, action)
+  }
+  return state
 }
