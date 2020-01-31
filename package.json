@@ -1,6 +1,6 @@
 {
   "name": "async-operations",
-  "version": "1.1.8",
+  "version": "1.1.9",
   "description": "A library for redux saga asynchronous calls",
   "main": "./dist/index.js",
   "repository": "https://github.com/NetchexDev/async-ops",

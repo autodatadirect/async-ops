@@ -106,6 +106,54 @@ export default function(state = {}, action) {
 }
 ```
 
+### Example useService.js hook to add to your project
+
+```javascript
+import { useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+
+export const selectStatus = service => state => {
+  return {
+    loading: false,
+    error: null,
+    ...(service.status(state) || {})
+  }
+}
+
+/*
+Service required, args optional
+args will be passed into the service invocation
+args used as dependencies for useEffect
+*/
+export default (service, args = []) => {
+  const dispatch = useDispatch()
+  const status = useSelector(selectStatus(service)) || {}
+  useEffect(() => {
+    dispatch(service.action(...args))
+  }, args)
+
+  return [status.loading, status.error]
+}
+```
+
+### Example usage of useService.js
+```javascript
+import useService from './useService'
+import fetchData from './fetchData'
+
+
+export const Component = ({ id }) => {
+  const [loading, error] = useService(fetchData, [id])
+
+  if (loading) {
+    return <p>Busy....</p>
+  }
+
+  return <p>Ready!</p>
+}
+
+```
+
 ### Shared functions
 
 The usage of `saga`, `reducer`, `enableMock`, and `disableMock` are the same as the original API. See below for usage.
