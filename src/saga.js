@@ -24,7 +24,11 @@ function * loader (action) {
       response
     }
 
-    yield put(responseAction)
+    try {
+      yield put(responseAction)
+    } catch (e) {
+      // redux-saga v0.16 swallows put() exceptions. Ensure v1 behaves the same.
+    }
   } catch (error) {
     const errorAction = {
       ...responseObject,
@@ -32,6 +36,10 @@ function * loader (action) {
       error
     }
 
-    yield put(errorAction)
+    try {
+      yield put(errorAction)
+    } catch (e) {
+      // redux-saga v0.16 swallows put() exceptions. Ensure v1 behaves the same.
+    }
   }
 }
