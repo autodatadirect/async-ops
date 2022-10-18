@@ -27,7 +27,7 @@ function * loader (action) {
     try {
       yield put(responseAction)
     } catch (e) {
-      // redux-saga v0.16 swallows put() exceptions
+      // redux-saga v0.16 swallows put() exceptions. Ensure v1 behaves the same.
     }
   } catch (error) {
     const errorAction = {
@@ -39,7 +39,7 @@ function * loader (action) {
     try {
       yield put(errorAction)
     } catch (e) {
-      // redux-saga v0.16 swallows put() exceptions
+      // redux-saga v0.16 swallows put() exceptions. Ensure v1 behaves the same.
     }
   }
 }
